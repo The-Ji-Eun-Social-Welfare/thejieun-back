@@ -30,4 +30,10 @@ public class Banner {
     @Column(name="img_path")
     // 이미지 경로
     private String imgPath;
+
+    // 이미지 경로 수정 메소드
+    public void modifyImgPath(String imgPath) {
+        // 이전 = 바뀐 내용
+        this.imgPath = imgPath;
+    }
 }

@@ -9,7 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 @Builder
-public class volunteerDTO {
+public class VolunteerDTO {
     private Long voNo;
     private String voName;
     private Long voTel;

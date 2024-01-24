@@ -15,6 +15,7 @@ public class NoticeDTO {
     private Long noticeNo;
     private String noticeTitle;
     private String noticeContent;
+
     @JsonFormat(pattern = "yy-MM-dd", timezone = "Asia/Seoul")
     private Date noticeRegdate;
 }

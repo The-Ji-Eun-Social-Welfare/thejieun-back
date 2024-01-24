@@ -7,6 +7,7 @@ import com.koi.thejieun.util.PageGroup;
 interface NoticeService {
     /**
      * 공지사항을 추가한다.
+     *
      * @param noticeDTO 공지사항 dto
      * @throws MyException
      */
@@ -14,6 +15,7 @@ interface NoticeService {
 
     /**
      * 공지사항 목록을 페이징 처리하여 조회한다.
+     *
      * @param currentPage 현재 페이지
      * @return currentPage에 해당하는 공지사항 목록
      * @throws MyException
@@ -22,6 +24,7 @@ interface NoticeService {
 
     /**
      * noticeNo에 해당하는 공지사항을 상세 조회한다.
+     *
      * @param noticeNo 공지사항 번호
      * @return noticeNo에 해당하는 공지사항
      * @throws MyException
@@ -30,6 +33,7 @@ interface NoticeService {
 
     /**
      * 공지사항 내용을 수정한다.
+     *
      * @param noticeDTO 공지사항 dto
      * @throws MyException
      */
@@ -37,6 +41,7 @@ interface NoticeService {
 
     /**
      * noticeNo에 해당하는 공지사항을 삭제한다.
+     *
      * @param noticeNo 공지사항 번호
      * @throws MyException
      */

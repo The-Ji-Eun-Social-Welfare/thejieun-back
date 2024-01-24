@@ -3,6 +3,8 @@ package com.koi.thejieun.banner.service;
 import com.koi.thejieun.banner.dto.BannerDTO;
 import com.koi.thejieun.exception.MyException;
 
+import java.util.List;
+
 public interface BannerService {
     /**
      * 배너 사진 추가
@@ -18,7 +20,7 @@ public interface BannerService {
      * @return bannerNo에 해당하는 배너
      * @throws MyException
     * */
-    public BannerDTO findByNoticeNo(Long bannerNo) throws MyException;
+    public List<BannerDTO> findByNoticeNo(Long bannerNo) throws MyException;
 
 
 

@@ -12,6 +12,7 @@ import lombok.*;
 public class VolunteerDTO {
     private Long voNo;
     private String voName;
+    private Long voPwd;
     private Long voTel;
     private String voContent;
     private Integer voStatus;

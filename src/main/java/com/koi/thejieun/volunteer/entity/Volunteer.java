@@ -23,29 +23,33 @@ import org.hibernate.annotations.DynamicInsert;
 /* 자원봉사 Entity */
 public class Volunteer {
     @Id
-    @Column(name="vo_no")
+    @Column(name = "vo_no")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "volunteer_no_seq_generator")
     // [PK] 신청 번호
     private Long voNo;
 
-    @Column(name="vo_name")
+    @Column(name = "vo_name")
     // 신청자 이름
     private String voName;
 
-    @Column(name="vo_tel")
-    // 신청자 번호
+    @Column(name = "vo_pwd")
+    // 비밀번호
+    private Long voPwd;
+
+    @Column(name = "vo_tel")
+    // 신청자 전화번호
     private Long voTel;
 
-    @Column(name="vo_content")
+    @Column(name = "vo_content")
     // 신청 내용
     private String voContent;
 
-    @Column(name="vo_status")
+    @Column(name = "vo_status")
     // 완료 여부
     private Integer voStatus;
 
-    @Column(name="vo_regdate")
-    @ColumnDefault(value="CURRENT_DATE")
+    @Column(name = "vo_regdate")
+    @ColumnDefault(value = "CURRENT_DATE")
     // 신청일
     private String voRegdate;
-    }
+}

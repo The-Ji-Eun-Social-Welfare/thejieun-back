@@ -22,16 +22,16 @@ import org.hibernate.annotations.DynamicInsert;
 /* 설정 Entity */
 public class Setting {
     @Id
-    @Column(name="setting_no")
+    @Column(name = "setting_no")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "setting_no_seq_generator")
     // [PK] 설정 번호
     private Long settingNo;
 
-    @Column(name="admin_id")
+    @Column(name = "admin_id")
     // 관리자 아이디
     private String adminId;
 
-    @Column(name="admin_pwd")
+    @Column(name = "admin_pwd")
     // 관리자 비밀번호
     private String adminPwd;
 }

@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class BannerImpl implements BannerService {
+public class BannerServiceImpl implements BannerService {
     @Autowired
     private BannerRepository repository;
     @Override

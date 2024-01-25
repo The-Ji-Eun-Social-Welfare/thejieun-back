@@ -1,6 +1,7 @@
 package com.koi.thejieun.banner.dto;
 
 import lombok.*;
+
 @Getter
 @Setter
 @AllArgsConstructor

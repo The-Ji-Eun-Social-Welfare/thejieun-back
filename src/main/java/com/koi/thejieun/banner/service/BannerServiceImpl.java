@@ -12,14 +12,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class BannerImpl implements BannerService {
-    @Autowired
-    private BannerRepository repository;
+public class BannerServiceImpl implements BannerService {
+    @Autowired private BannerRepository repository;
+
     @Override
     public void addBanner(BannerDTO bannerDTO) throws MyException {
-        Banner banner = Banner.builder()
-                .imgPath(bannerDTO.getImgPath())
-                .build();
+        Banner banner = Banner.builder().imgPath(bannerDTO.getImgPath()).build();
         repository.save(banner);
     }
 
@@ -28,10 +26,11 @@ public class BannerImpl implements BannerService {
         List<Banner> bannerList = repository.findAll();
         List<BannerDTO> bannerDTOList = new ArrayList<>();
         for (Banner ban : bannerList) {
-            BannerDTO bannerDTO = BannerDTO.builder()
-                    .bannerNo(ban.getBannerNo())
-                    .imgPath(ban.getImgPath())
-                    .build();
+            BannerDTO bannerDTO =
+                    BannerDTO.builder()
+                            .bannerNo(ban.getBannerNo())
+                            .imgPath(ban.getImgPath())
+                            .build();
             bannerDTOList.add(bannerDTO);
         }
         return bannerDTOList;
@@ -48,6 +47,5 @@ public class BannerImpl implements BannerService {
     @Override
     public void removeBanner(Long bannerNo) throws MyException {
         repository.deleteById(bannerNo);
-
     }
 }

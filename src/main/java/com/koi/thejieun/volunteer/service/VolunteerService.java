@@ -7,6 +7,7 @@ import com.koi.thejieun.volunteer.dto.VolunteerDTO;
 public interface VolunteerService {
     /**
      * 자원봉사자 신청
+     *
      * @param volunteerDTO 지원자 dto
      * @throws MyException
      */
@@ -14,6 +15,7 @@ public interface VolunteerService {
 
     /**
      * 자원봉사 신청목록 페이징 처리하여 전체 조회
+     *
      * @param currentPage 현재 페이지
      * @return 자원봉사 전체 신청 목록
      * @throws MyException
@@ -22,15 +24,18 @@ public interface VolunteerService {
 
     /**
      * status에 해당하는 자원봉사 신청 목록을 페이징 처리하여 조회
+     *
      * @param currentPage 현재 페이지
      * @param status 완료 여부 : 0인 경우 완료된 봉사, 1인 경우 대기중인 봉사
      * @return 자원봉사 신청 목록
      * @throws MyException
      */
-    public PageGroup<VolunteerDTO> findByStatus(Integer currentPage, Integer status) throws MyException;
+    public PageGroup<VolunteerDTO> findByStatus(Integer currentPage, Integer status)
+            throws MyException;
 
     /**
      * 자원봉사자 상세 조회
+     *
      * @param voNo 공지사항 번호
      * @return voNo에 해당하는 공지사항
      * @throws MyException
@@ -38,13 +43,24 @@ public interface VolunteerService {
     public VolunteerDTO findByVoNo(Long voNo) throws MyException;
 
     /**
+     * 자원봉사 작성 내용 수정
+     *
      * @param volunteerDTO
      * @throws MyException
      */
     public void modifyVolunteer(VolunteerDTO volunteerDTO) throws MyException;
 
     /**
+     * 자원봉사 완료 상태로 변경
+     *
+     * @param voNo 자원봉사 번호
+     * @throws MyException
+     */
+    public void modifyStatus(Long voNo) throws MyException;
+
+    /**
      * 자원봉사자 내역 삭제
+     *
      * @param voNo
      * @throws MyException
      */

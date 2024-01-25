@@ -16,6 +16,7 @@ public class VolunteerDTO {
     private Long voTel;
     private String voContent;
     private Integer voStatus;
+
     @JsonFormat(pattern = "yy-MM-dd", timezone = "Asia/Seoul")
     private String voRegdate;
 }

@@ -1,5 +1,6 @@
 package com.koi.thejieun.volunteer.entity;
 
+import com.koi.thejieun.volunteer.dto.VolunteerDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -45,11 +46,24 @@ public class Volunteer {
     private String voContent;
 
     @Column(name = "vo_status")
-    // 완료 여부
+    @ColumnDefault(value = "1")
+    // 완료 여부 : 1=대기중 0=완료
     private Integer voStatus;
 
     @Column(name = "vo_regdate")
     @ColumnDefault(value = "CURRENT_DATE")
     // 신청일
     private String voRegdate;
+
+    // 자원봉사 내용 수정
+    public void modifyVoInfo(VolunteerDTO volunteerDTO) {
+        this.voName = volunteerDTO.getVoName();
+        this.voContent = volunteerDTO.getVoContent();
+        this.voTel = volunteerDTO.getVoTel();
+    }
+
+    // 자원봉사 완료 상태로 변경
+    public void modifyStatus() {
+        this.voStatus = 0;
+    }
 }

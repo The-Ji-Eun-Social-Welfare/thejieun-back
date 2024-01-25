@@ -22,12 +22,12 @@ import org.hibernate.annotations.DynamicInsert;
 /* 갤러리 이미지 Entity */
 public class Image {
     @Id
-    @Column(name="img_no")
+    @Column(name = "img_no")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "image_no_seq_generator")
     // 이미지 번호
     private Long imgNo;
 
-    @Column(name="gall_no")
+    @Column(name = "gall_no")
     // 갤러리 번호
     private Long gallNo;
 }

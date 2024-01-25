@@ -22,12 +22,12 @@ import org.hibernate.annotations.DynamicInsert;
 /* 배너 Entity */
 public class Banner {
     @Id
-    @Column(name="banner_no")
+    @Column(name = "banner_no")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "banner_no_seq_generator")
     // [PK] 배너 번호
     private Long bannerNo;
 
-    @Column(name="img_path")
+    @Column(name = "img_path")
     // 이미지 경로
     private String imgPath;
 

@@ -11,7 +11,7 @@ public interface VolunteerService {
      * @param volunteerDTO 지원자 dto
      * @throws MyException
      */
-    public void addVolunteer(VolunteerDTO volunteerDTO) throws MyException;
+    public Long addVolunteer(VolunteerDTO volunteerDTO) throws MyException;
 
     /**
      * 자원봉사 신청목록 페이징 처리하여 전체 조회

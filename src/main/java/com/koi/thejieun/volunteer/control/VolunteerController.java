@@ -37,7 +37,20 @@ public class VolunteerController {
         }
     }
 
-    @DeleteMapping("/remove/{voNo}")
+    @PutMapping("/{voNo}")
+    @Transactional
+    public ResponseEntity<?> modifyInfo(@PathVariable("voNo") Long voNo, @RequestBody VolunteerDTO volunteerDTO) {
+        volunteerDTO.setVoNo(voNo);
+        try {
+            service.modifyVolunteer(volunteerDTO);
+            String msg="자원봉사 폼 수정 성공";
+            return new ResponseEntity<>(msg, HttpStatus.OK);
+        } catch (MyException e) {
+            throw new MyException(ErrorCode.CONTENT_NOT_FOUND);
+        }
+    }
+
+    @DeleteMapping("/{voNo}")
     @Transactional
     public ResponseEntity<?> deleteVol(@PathVariable("voNo") Long voNo) throws MyException {
         try {

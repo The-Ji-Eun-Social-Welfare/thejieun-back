@@ -20,7 +20,7 @@ public enum ErrorCode {
     UNAVAILABLE_REFRESH_TOKEN(UNAUTHORIZED, "유효하지 않은 접근입니다."),
 
     /* 403 FORBIDDEN : 인가 실패. 특정 리소스에 대한 권한 부족 */
-    UNAUTHORIZED_ACCESS(FORBIDDEN, "접근권한이 없습니다."),
+    UNAUTHORIZED_ACCESS(FORBIDDEN, "접근 권한이 없습니다."),
 
     /* 404 NOT_FOUND : Resource 를 찾을 수 없음 */
     CONTENT_NOT_FOUND(NOT_FOUND, "항목을 찾을 수 없습니다."),

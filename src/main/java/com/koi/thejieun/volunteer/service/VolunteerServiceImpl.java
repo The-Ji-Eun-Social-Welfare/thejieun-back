@@ -43,9 +43,8 @@ public class VolunteerServiceImpl implements VolunteerService {
     @Override
     public VolunteerDTO findByVoNo(Long voNo) throws MyException {
         Optional<Volunteer> volunteerOpt = repository.findById(voNo);
-        if (!volunteerOpt.isPresent()) {
-            throw new MyException(ErrorCode.CONTENT_NOT_FOUND);
-        }
+        if (!volunteerOpt.isPresent()) throw new MyException(ErrorCode.CONTENT_NOT_FOUND);
+
         Volunteer volunteer = volunteerOpt.get();
         VolunteerDTO volunteerDTO =
                 VolunteerDTO.builder()
@@ -61,8 +60,20 @@ public class VolunteerServiceImpl implements VolunteerService {
     }
 
     @Override
+    public Long chkPwd(Long voNo, Long pwd) throws MyException {
+        Optional<Volunteer> volunteerOpt=repository.findById(voNo);
+        if(!volunteerOpt.isPresent()) throw new MyException(ErrorCode.CONTENT_NOT_FOUND);
+
+        Volunteer volunteer=volunteerOpt.get();
+        if(volunteer.getVoPwd()!=pwd) throw new MyException(ErrorCode.UNAUTHORIZED_ACCESS);
+        else return voNo;
+    }
+
+    @Override
     public void modifyVolunteer(VolunteerDTO volunteerDTO) throws MyException {
         Optional<Volunteer> volunteerOpt = repository.findById(volunteerDTO.getVoNo());
+        if(!volunteerOpt.isPresent()) throw new MyException(ErrorCode.CONTENT_NOT_FOUND);
+
         Volunteer volunteer = volunteerOpt.get();
         volunteer.modifyVoInfo(volunteerDTO);
         repository.save(volunteer);
@@ -71,6 +82,8 @@ public class VolunteerServiceImpl implements VolunteerService {
     @Override
     public void modifyStatus(Long voNo) throws MyException {
         Optional<Volunteer> volunteerOpt = repository.findById(voNo);
+        if(!volunteerOpt.isPresent()) throw new MyException(ErrorCode.CONTENT_NOT_FOUND);
+
         Volunteer volunteer = volunteerOpt.get();
         volunteer.modifyStatus();
         repository.save(volunteer);

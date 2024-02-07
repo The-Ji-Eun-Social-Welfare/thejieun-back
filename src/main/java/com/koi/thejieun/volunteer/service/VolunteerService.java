@@ -43,6 +43,14 @@ public interface VolunteerService {
     public VolunteerDTO findByVoNo(Long voNo) throws MyException;
 
     /**
+     * 자원봉사 폼 조회 시 비밀번호 확인 (자원봉사 신청자)
+     * @param voNo 자원봉사 번호
+     * @param pwd 비밀번호
+     * @throws MyException
+     */
+    public Long chkPwd(Long voNo, Long pwd) throws MyException;
+
+    /**
      * 자원봉사 작성 내용 수정
      *
      * @param volunteerDTO

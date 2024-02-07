@@ -1,5 +1,6 @@
 package com.koi.thejieun.setting.entity;
 
+import com.koi.thejieun.setting.dto.SettingDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -34,4 +35,9 @@ public class Setting {
     @Column(name = "admin_pwd")
     // 관리자 비밀번호
     private String adminPwd;
+
+    public void modifySetInfo(SettingDTO settingDTO) {
+        this.adminId = settingDTO.getAdminId();
+        this.adminPwd = settingDTO.getAdminPwd();
+    }
 }

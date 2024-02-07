@@ -1,19 +1,22 @@
 package com.koi.thejieun.volunteer.service;
 
+import com.koi.thejieun.exception.ErrorCode;
 import com.koi.thejieun.exception.MyException;
 import com.koi.thejieun.util.PageGroup;
 import com.koi.thejieun.volunteer.dao.VolunteerRepository;
 import com.koi.thejieun.volunteer.dto.VolunteerDTO;
 import com.koi.thejieun.volunteer.entity.Volunteer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class VolunteerServiceImpl implements VolunteerService {
     @Autowired private VolunteerRepository repository;
 
     @Override
-    public void addVolunteer(VolunteerDTO volunteerDTO) throws MyException {
+    public Long addVolunteer(VolunteerDTO volunteerDTO) throws MyException {
         Volunteer volunteer =
                 Volunteer.builder()
                         .voName(volunteerDTO.getVoName())
@@ -22,6 +25,7 @@ public class VolunteerServiceImpl implements VolunteerService {
                         .voTel(volunteerDTO.getVoTel())
                         .build();
         repository.save(volunteer);
+        return volunteer.getVoNo();
     }
 
     @Override
@@ -39,6 +43,9 @@ public class VolunteerServiceImpl implements VolunteerService {
     @Override
     public VolunteerDTO findByVoNo(Long voNo) throws MyException {
         Optional<Volunteer> volunteerOpt = repository.findById(voNo);
+        if (!volunteerOpt.isPresent()) {
+            throw new MyException(ErrorCode.CONTENT_NOT_FOUND);
+        }
         Volunteer volunteer = volunteerOpt.get();
         VolunteerDTO volunteerDTO =
                 VolunteerDTO.builder()

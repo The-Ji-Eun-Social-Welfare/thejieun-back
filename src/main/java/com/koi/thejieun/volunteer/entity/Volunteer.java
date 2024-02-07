@@ -2,6 +2,7 @@ package com.koi.thejieun.volunteer.entity;
 
 import com.koi.thejieun.volunteer.dto.VolunteerDTO;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -30,18 +31,22 @@ public class Volunteer {
     private Long voNo;
 
     @Column(name = "vo_name")
+    @NotNull
     // 신청자 이름
     private String voName;
 
     @Column(name = "vo_pwd")
+    @NotNull
     // 비밀번호
     private Long voPwd;
 
     @Column(name = "vo_tel")
+    @NotNull
     // 신청자 전화번호
-    private Long voTel;
+    private String voTel;
 
     @Column(name = "vo_content")
+    @NotNull
     // 신청 내용
     private String voContent;
 
